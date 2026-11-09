@@ -1,0 +1,26 @@
+diff --git a/meson.build b/meson.build
+index 7a9bb68..440c356 100644
+--- a/meson.build
++++ b/meson.build
+@@ -73,7 +73,7 @@ else
+     include_type: 'system')
+ endif
+ 
+-gdk_dep = dependency('gdk-3.0', version: '>= 3.22')
++gdk_dep = dependency('gtk4', version: '>= 4.0')
+ gmodule_dep = dependency('gmodule-2.0')
+ json_glib_dep = dependency('json-glib-1.0')
+ 
+diff --git a/src/meson.build b/src/meson.build
+index 96053e7..d5d37be 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -106,7 +106,7 @@ if get_option('introspection')
+     symbol_prefix: 'gxr',
+     export_packages: api_path,
+     include_directories: gulkan_girdir,
+-    includes: [ 'cairo-1.0', 'GdkPixbuf-2.0', 'Gdk-3.0', 'Graphene-1.0', 'Gulkan-' + gulkan_dep_major_minor_ver],
++    includes: [ 'cairo-1.0', 'GdkPixbuf-2.0', 'Gdk-4.0', 'Graphene-1.0', 'Gulkan-' + gulkan_dep_major_minor_ver],
+     header: 'gxr.h',
+     install: true,
+   )

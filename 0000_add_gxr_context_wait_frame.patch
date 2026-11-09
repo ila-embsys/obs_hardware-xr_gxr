@@ -1,0 +1,28 @@
+diff --git a/examples/cube/cube.c b/examples/cube/cube.c
+index 7d2e159..9b1e7e4 100644
+--- a/examples/cube/cube.c
++++ b/examples/cube/cube.c
+@@ -422,6 +422,9 @@ _iterate_cb (gpointer _self)
+ 
+   gxr_context_poll_events (self->context);
+ 
++  if (!gxr_context_wait_frame (self->context))
++    return FALSE;
++
+   if (!gxr_context_begin_frame (self->context))
+     return FALSE;
+ 
+diff --git a/examples/demo/gxr-demo.c b/examples/demo/gxr-demo.c
+index a3ba6b2..4d5f08e 100644
+--- a/examples/demo/gxr-demo.c
++++ b/examples/demo/gxr-demo.c
+@@ -326,6 +326,9 @@ _iterate_cb (gpointer _self)
+   if (!self->framecycle)
+     return TRUE;
+ 
++  if (!gxr_context_wait_frame (self->context))
++    return FALSE;
++
+   if (!gxr_context_begin_frame (self->context))
+     return FALSE;
+ 

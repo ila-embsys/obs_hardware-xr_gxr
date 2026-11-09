@@ -1,0 +1,13 @@
+diff --git a/src/gxr-context.c b/src/gxr-context.c
+index b2f40e0..91873e6 100644
+--- a/src/gxr-context.c
++++ b/src/gxr-context.c
+@@ -1255,7 +1255,7 @@ gxr_context_init (GxrContext *self)
+   self->device_manager = gxr_device_manager_new ();
+   self->view_count = 0;
+   self->views = NULL;
+-  self->predicted_display_time = 0;
++  self->predicted_display_time = 1;
+   self->predicted_display_period = 0;
+   self->framebuffers = NULL;
+   self->images = NULL;
